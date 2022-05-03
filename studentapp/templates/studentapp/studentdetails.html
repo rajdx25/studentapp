@@ -1,0 +1,33 @@
+{% extends 'studentapp/index.html' %}
+{% block content %}
+<h1>Student Details :</h1>
+{% include 'studentapp/messages.html' %}
+{% load static %}
+{% if st %}
+    <table>
+        
+        <tr align="center">
+            <th class="boss">Name</th>
+            <th class="boss">Address</th>
+            <th class="boss">Number</th>
+            <th class="boss">Email</th>
+            <th class="boss">Action</th>
+        </tr>
+    {% for data in st %}
+        <tr align="center">
+            
+            <td class="dx">{{data.studentname}}</td>
+            <td>{{data.studentaddress}}</td>
+            <td>{{data.studentnumber}}</td>
+            <td>{{data.studentemail}}</td>
+            <td>
+                <a href="studentapp/delete/{{data.studentnumber}}" type="button" class="btn btn-danger">Delete</a>
+                <a href="/studentapp/update/{{data.studentemail}}" type="button" class="btn btn-warning">Edit</a>
+                <!-- <a href="/studentapp/edit/{{data.studentemail}}" type="button" class="btn btn-primary">update</a> -->
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+{% endblock content %}
+

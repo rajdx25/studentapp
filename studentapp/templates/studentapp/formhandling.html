@@ -1,0 +1,13 @@
+{% extends 'studentapp/index.html' %}
+{% block content %}
+
+    <h1><u> DEPARTEMENT LOGIN </u></h1>
+        <div style = "max-width:470px;" class="col">
+            {% include 'studentapp/messages.html' %}
+            <form  action="" method="post" class="FORM">
+                {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" class="btn btn-primary" value="submit">
+            </form>
+        </div>
+{% endblock content %}
